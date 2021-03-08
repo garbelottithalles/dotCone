@@ -1,0 +1,19 @@
+{
+  "name": "new_cone",
+  "version": "1.0.0",
+  "description": "DATABASE cones:\r     TABELAS:\r         CLIENTES: nome, telefone, endereço;\r         PRODUTOS: nome, descrição, preço;\r \t    VENDAS: nome_cliente, nome_produto, quantidade, data, total;\r ->      DESPESAS: nome, descrição, data, total;\r ->\t    TESTE_VENDAS: nome_cliente, nome_produto, quantidade, data, total;",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nunjucks-cli": "^1.0.0",
+    "pg": "^8.5.1",
+    "sequelize": "^6.5.0"
+  }
+}

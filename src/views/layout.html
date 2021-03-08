@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+    {% block title %}
+    <title>.Cone</title>
+    {% endblock title %}
+
+    
+    {% block styles %}
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    {% endblock styles %}
+    
+</head>
+
+<body>
+    <div id="{{ pageId }}">
+    {% block content %}
+            
+    {% endblock content %}
+    </div>
+
+    {% block modal %}
+    {% endblock modal %}
+
+    {% block scripts %}
+    {% endblock scripts %}
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% set pageId = "Sales" %}
+
+{% block title %}
+    <title>Vendas</title>
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+    <div class="conteiner">
+        <div class="conteiner-1">
+            <table border="1">
+                <caption>
+                    <h2>Vendas</h2>
+                </caption>
+                <colgroup span="4"></colgroup>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                </tr>
+
+                {% for teste_sale in teste_sales %}
+                    <tr>
+                        <td class="normal">
+                            {{teste_sale.client_name}}
+                        </td>
+
+                        <td class="center-table-data">
+                            {{teste_sale.quantify}}
+                        </td>
+
+                        <td class="center-table-data">
+                            {{teste_sale.total}}$
+                        </td>
+
+                        <td class="center-table-data">
+                            {{teste_sale.date}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+
+    <caption>
+        <h2>Registro de Venda</h2>
+    </caption>
+    <div class="conteiner">
+        <form action="/teste_vendas" method="POST">
+            <fieldset>
+                <div class="field-group">
+                    <div class="field">
+                        <label for="product">Produto:</label>
+                        <input type="text" name="product" required="required">
+                    </div>
+
+                    <div class="field">
+                        <label for="client">Cliente:</label>
+                        <input type="text" name="client" required="required">
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="quantify">Quantidade:</label>
+                        <input type="text" name="quantify" required="required">
+                    </div>
+
+                    <div class="field">
+                        <label for="total">Valor total:</label>
+                        <input type="text" name="total" required="required">
+                    </div>
+
+                    <div class="field">
+                        <label for="date">Data:</label>
+                        <input type="text" name="date" required="required">
+                    </div>
+                </div>
+
+                <button type="submit">Registrar Venda</button>
+            </fieldset>
+        </form>
+    </div>
+
+    {% include "partials/page-footer.html" %}
+
+
+{% endblock content %}
+
+{% block scripts %}{% endblock scripts %}

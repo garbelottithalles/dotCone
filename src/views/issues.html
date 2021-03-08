@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% set pageId = "Issues" %}
+
+{% block title %}
+    <title>Atividades</title>
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+{% endblock styles %}
+
+{% block content %}
+    {% include "partials/page-header.html" %}
+    <div class="conteiner">
+        <div class="conteiner-1">
+            <table border="1">
+                <caption>
+                    <h2>Atividades semanais</h2>
+                </caption>
+                <colgroup span="4"></colgroup>
+                <tr>
+                    <th>Atividade</th>
+                    <th>Descrição</th>
+                    <th>Prazo</th>
+                    <th>Opções</th>
+                </tr>
+
+                {% for issue in issues %}
+                    <tr>
+                        <td class="normal">
+                            {{issue.activity}}
+                        </td>
+
+                        <td class="normal">
+                            {{issue.description}}
+                        </td>
+
+                        <td class="center-table-data">
+                            {{issue.deadline}}
+                        </td>
+
+                        <td class="bottom">
+                            <a href="/issues/complete/{{issue.id}}">
+                                <button class="complete_issue">Finalizar</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+    <div class="conteiner">
+        <caption>
+            <h2>Registro de Atividades</h2>
+        </caption>
+        <form action="/issues" method="POST">
+
+            <fieldset>
+                <div class="field-group">
+                    <div class="field">
+                        <label for="activity">Atividade:</label>
+                        <input type="text" name="activity" required="required">
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="description">Descrição:</label>
+                        <input type="text" name="description">
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="deadline">Prazo:</label>
+                        <input type="text" name="deadline">
+                    </div>
+
+                </div>
+                <button type="submit">Anotar</button>
+            </fieldset>
+
+        </form>
+
+    </div>
+    {% include "partials/page-footer.html" %}
+
+{% endblock content %}
+
+{% block scripts %}{% endblock scripts %}
